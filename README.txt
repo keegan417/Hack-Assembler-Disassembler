@@ -16,4 +16,4 @@ The Aggie Code of Honor functions as a symbol to all Aggies, promoting understan
 Assembler transfers Assembly Code to Machine Code
 Dissassembler transfers Machine Code to Assembly Code
 
-This facilitates communication between the programmar and the computer as the programmar types in Assembly Code that is easily understood and then converted to 1 and 0 bits in binary machine code to execute commands.
+This facilitates communication between the programmer and the computer as the programmer types in Assembly Code that is easily understood and then converted to 1 and 0 bits in binary machine code to execute commands.
