@@ -4,30 +4,8 @@ using namespace std;
 #include <math.h>
 #include <map>
 
-
-
 string bitConversion(string inp) {
     string temp = inp;
-    // if(temp == "SP")
-    //     return "0";
-    // else if(temp == "LCL")
-    //     return "1";
-    // else if(temp == "ARG")
-    //     return "2";
-    // else if(temp == "THIS")
-    //     return "3";
-    // else if(temp == "THAT")
-    //     return "4";
-    // else if(temp == "SCREEN")
-    //     return "16384";
-    // else if(temp == "KBD")
-    //     return "24576";
-    // else if(temp == "R0")
-    //     return "0";
-    // else if(temp == "R1")
-    //     return "1";
-    // else if(temp == "R2")
-    //     return "0";  
     string newStr = "0";
     int num = stoi(temp);
     int aray[16];
@@ -51,29 +29,9 @@ string bitConversion(string inp) {
             newStr += '0';
         }
     }
-
-    // while(num > 0) {
-    //     remainder = num % 2;
-    //     int insert = remainder * digitsPlace;
-    //     // cout << insert;
-    //     tempResult += insert;
-    //     digitsPlace *= 10;
-    //     num /= 2;
-    // }
-    
-    // newStr = to_string(tempResult);
-    // if(newStr.size() < 16) {
-    //     int amtAdd = 16 - newStr.size();
-    //     for(int i = 0; i < amtAdd; i++) {
-    //         newStr = '0' + newStr;
-    //     }
-    // }
     return newStr;
     }
    
-
-
-
 string cInstruction(string inp) {
     string temp1 = "111";
     string temp2 = "";
@@ -356,13 +314,6 @@ string cInstruction(string inp) {
             temp4 = "0010101";
     }
     string fin = "";
-    // if(inp.find('=') != std::string::npos) {
-    //     fin = temp1 + temp4 + temp2 + temp3;
-    // }
-    // else if(inp.find(';') == std::string::npos)
-    //     fin = temp1 + temp4 + temp2 + temp3 + "000";
-    // else if(inp.find('='))
-    //     fin = temp1 + temp4 + temp2 + temp3;
     if(inp.find('=') == std::string::npos && inp.find(';') == std::string::npos) {
         if(inp == "0" || inp == "1" || inp == "-1" || inp == "D" || inp == "A" || inp == "!D" || inp == "!A" || inp == "-D" || inp == "-A" || inp == "M" || inp == "!M" || inp == "-M")
             return temp1 + temp4 + temp2 + temp3 + "000";
@@ -373,68 +324,7 @@ string cInstruction(string inp) {
 
 }
 
-
-
-
-
-//  else {
-//         bool found;
-//         if(mapTemp[temp] != NULL)
-//             found = true;
-//         if(found == true) {
-//                 int num = mapTemp[temp];
-//                 int digitsPlace = 1;
-//                 int remainder = 0;
-//                 int tempResult = 0;
-//                 while(num > 0) {
-//                     remainder = num % 2;
-//                     int insert = remainder * digitsPlace;
-//                     tempResult += insert;
-//                     digitsPlace *= 10;
-//                     num /= 2;
-
-//     }
-//         string newStr = "";
-//                 newStr = to_string(tempResult);
-//                 if(newStr.size() < 16) {
-//                     int amtAdd = 16 - newStr.size();
-//                     for(int i = 0; i < amtAdd; i++) {
-//                     newStr = '0' + newStr;
-//                 }
-//             }
-//                 return '0' + newStr;
-//             }
-//             else {
-//                 mapTemp[temp] = varCounter;
-//                 string newStr = "";
-//                 int num = varCounter;
-//                 int digitsPlace = 1;
-//                 int remainder = 0;
-//                 int tempResult = 0;
-//                 while(num > 0) {
-//                     remainder = num % 2;
-//                     int insert = remainder * digitsPlace;
-//                     tempResult += insert;
-//                     digitsPlace *= 10;
-//                     num /= 2;
-
-//          }
-
-//                 newStr = to_string(tempResult);
-//                 if(newStr.size() < 16) {
-//                     int amtAdd = 16 - newStr.size();
-//                 for(int i = 0; i < amtAdd; i++) {
-//                         newStr = '0' + newStr;
-//             }
-//     }
-//             varCounter++;
-//             return newStr;
-//             }
-//         }
-//         }
-
 int main () {
-    // string command;
     map<string, int> m;
     m["SP"] = 0;
     m["LCL"] = 1;
@@ -496,16 +386,6 @@ int main () {
             if(command[i] == ' ')
                 command.erase(i, 1);
         }
-
-        // if(command[0] == '(') {
-        //     string tempName = "";
-        //     int i = 1;
-        //     while(!command[i] == ')') {
-        //         tempName += command[i];
-        //         i++;
-        //     }
-        //     m[tempName] = labelCounter;
-        // }
         if(command[0] == '@') {
                 command = command.substr(1);
                 bool isNum = true;
@@ -523,15 +403,12 @@ int main () {
                         command = to_string(m[command]);
                     }
                 }
-                // else
-                //     command = command.substr(1);
                 cout << bitConversion(command) << endl;
             }
         else if(command[0] != '@' && command.substr(0,2) != "//" && command != "" && command[0] != '(') {
             string tempResult = cInstruction(command);
             if(command != "")
                 cout << cInstruction(command) << endl;
-            // cout << cInstruction(command) << endl;
         }
         labelCount++;
 
