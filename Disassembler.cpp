@@ -125,16 +125,10 @@ string cInstruction(string inp) {
         temp = thirdTemp + ";JMP";
     }
     return temp;
-
-    // else {
-
-    // }
-
 }
 
 int main() {
     string command;
-    // cout << "Enter a binary command: ";
     while(getline(cin, command)) {
     if(command.empty())
         break;
